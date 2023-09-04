@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev:front": "parcel serve ./front-src/index.html",
-    "dev:back": "ts-node ./back-src/index.ts",
+    "dev:back": "ts-node ./back-src/dev.ts",
     "dev": "npm run dev:front && npm run dev:back",
     "build:front": "parcel build ./front-src/index.html",
     "build:back": "tsc",
@@ -35,6 +35,7 @@
     "algoliasearch": "^4.17.1",
     "cloudinary": "^1.37.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "dropzone": "^6.0.0-beta.2",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",

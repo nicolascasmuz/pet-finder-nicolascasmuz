@@ -3,6 +3,7 @@
   "type": "commonjs",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "dev:front": "parcel serve ./front-src/index.html",
     "dev:back": "ts-node ./back-src/index.ts",

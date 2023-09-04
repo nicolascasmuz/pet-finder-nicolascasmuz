@@ -1,8 +1,8 @@
 {
   "name": "pet-finder",
+  "type": "commonjs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "dev:front": "parcel serve ./front-src/index.html",
     "dev:back": "ts-node ./back-src/index.ts",
@@ -11,9 +11,6 @@
     "build": "npm run build:front && npm run build:back",
     "start": "node ./back-src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.3.1",
     "assert": "^2.0.0",

@@ -6,6 +6,7 @@
   "scripts": {
     "dev:front": "parcel serve ./front-src/index.html",
     "dev:back": "ts-node ./back-src/index.ts",
+    "dev": "npm run dev:front && npm run dev:back",
     "build:front": "parcel build ./front-src/index.html",
     "build:back": "tsc",
     "build": "npm run build:front && npm run build:back",

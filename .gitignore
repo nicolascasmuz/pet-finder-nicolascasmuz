@@ -4,3 +4,4 @@ dist
 back-dist
 front-dist
 .parcel-cache
+.env

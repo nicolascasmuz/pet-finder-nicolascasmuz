@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Profile = exports.User = void 0;
+const user_1 = require("./user");
+Object.defineProperty(exports, "User", { enumerable: true, get: function () { return user_1.User; } });
+const profile_1 = require("./profile");
+Object.defineProperty(exports, "Profile", { enumerable: true, get: function () { return profile_1.Profile; } });
+const petreport_1 = require("./petreport");
+const missingpet_1 = require("./missingpet");
+user_1.User.hasOne(profile_1.Profile);
+profile_1.Profile.belongsTo(user_1.User);
+user_1.User.hasMany(missingpet_1.MissingPet);
+missingpet_1.MissingPet.belongsTo(user_1.User);
+user_1.User.hasMany(petreport_1.PetReport);
+petreport_1.PetReport.belongsToMany(user_1.User, { through: "C" });

@@ -2,7 +2,7 @@ import { state } from "../state";
 import { Router } from "@vaadin/router";
 import { Dropzone } from "dropzone";
 import mapboxgl from "mapbox-gl";
-mapboxgl.accessToken = process.env.BACKEND_URL;
+mapboxgl.accessToken = process.env.MAPBOX_KEY;
 const uploadPic = require("../resources/upload-pic.png");
 const pinMap = require("url:../resources/pin-map.png");
 

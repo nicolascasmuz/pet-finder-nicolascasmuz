@@ -2,7 +2,7 @@ import { Router } from "@vaadin/router";
 import { state } from "../state";
 import mapboxgl from "mapbox-gl";
 import MapboxClient from "mapbox";
-const MAPBOX_TOKEN = process.env.BACKEND_URL;
+const MAPBOX_TOKEN = process.env.MAPBOX_KEY;
 mapboxgl.accessToken = MAPBOX_TOKEN;
 const mapboxClient = new MapboxClient(MAPBOX_TOKEN);
 const getLocationImg = require("url:../resources/get-location_1@2x.png");

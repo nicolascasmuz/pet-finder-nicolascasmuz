@@ -9,6 +9,7 @@ import "./components/map-comp";
 import "./components/missing-pet-card-comp";
 import "./components/report-form-comp";
 import "./components/reported-pet-card-comp";
+import "./components/sent-info-comp";
 import "./components/set-radius-form-comp";
 
 import "./pages/main-page";

@@ -20,7 +20,7 @@ customElements.define(
                   <h3 class="card__name">${this.name}</h3>
                   <div class="card__found">ENCONTRADO</div>
                 </div>
-                <p class="details">${this.details}</p>
+                <p class="card__details">${this.details}</p>
             </div>
           `;
 

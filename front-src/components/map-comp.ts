@@ -776,6 +776,12 @@ customElements.define(
       const reportFormEl = missingPetCardEl.querySelector(
         "report-form-comp"
       ) as HTMLElement;
+      const sentInfoEl = missingPetCardEl.querySelector(
+        "sent-info-comp"
+      ) as HTMLElement;
+      const sentInfoButtonEl = sentInfoEl.querySelector(
+        ".sent-info__button"
+      ) as HTMLElement;
 
       new mapboxgl.Map({
         container: mapEl,
@@ -788,11 +794,13 @@ customElements.define(
         this.connectedCallback();
       });
 
-      reportButtonEl.addEventListener("click", (e) => {
-        e.preventDefault();
-
+      reportButtonEl.addEventListener("click", () => {
         reportFormEl.style.display = "block";
         cardContainerEl.style.display = "none";
+      });
+
+      sentInfoButtonEl.addEventListener("click", () => {
+        this.connectedCallback();
       });
 
       reportFormEl.addEventListener("submit", async (e: any) => {
@@ -801,8 +809,9 @@ customElements.define(
         const infoValue = e.target["info"].value;
 
         const mail = {
-          ownerEmail: cs.selectedPet.ownerEmail,
           myEmail: cs.email,
+          myName: cs.nickname,
+          ownerEmail: cs.selectedPet.ownerEmail,
           ownerName: cs.selectedPet.ownerName,
           missingPetName: cs.selectedPet.name,
           info: infoValue,
@@ -816,6 +825,9 @@ customElements.define(
             "content-type": "application/json",
           },
           body: JSON.stringify(mail),
+        }).then(() => {
+          reportFormEl.style.display = "none";
+          sentInfoEl.style.display = "block";
         });
       });
     }

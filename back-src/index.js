@@ -11,7 +11,7 @@ const petreports_controller_1 = require("./controllers/petreports-controller");
 const missingpets_controller_1 = require("./controllers/missingpets-controller");
 const sha256_1 = require("./lib/sha256");
 const algolia_1 = require("./lib/algolia");
-const sendgrid_1 = require("./lib/sendgrid");
+const resend_1 = require("./lib/resend");
 const port = process.env.PORT || 3000;
 const app = express();
 app.use(express.json({ limit: "50mb" }));
@@ -188,19 +188,20 @@ app.get("/pets-near-to", async (req, res) => {
 });
 // ENVÍA INFO POR MAIL
 app.post("/send-mail", async (req, res) => {
-    const { ownerEmail, myEmail, ownerName, missingPetName, info } = req.body;
+    const { myEmail, myName, ownerEmail, ownerName, missingPetName, info } = req.body;
     const msg = {
-        to: ownerEmail,
-        from: myEmail,
+        from: "onboarding@resend.dev",
+        to: "nicolascasmuz@gmail.com",
         subject: `Hola ${ownerName}, parece que alguien ha visto a ${missingPetName}`,
-        text: info,
-        html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+        html: `<h4>Reportado por el usuario: ${myName}</h4><h4>Email: ${myEmail}</h4><p>Mensaje: ${info}</p>`,
     };
-    /* console.log("msg: ", msg);
-    res.json(msg); */
-    sendgrid_1.sgMail.send(msg).then(() => {
-        res.json("ok");
-    });
+    resend_1.resend.emails.send(msg);
+    try {
+        res.status(200).json({ msg });
+    }
+    catch {
+        res.status(401).json({ error: true });
+    }
 });
 app.use(express.static(path.join(__dirname, "../dist")));
 app.get("*", (req, res) => {

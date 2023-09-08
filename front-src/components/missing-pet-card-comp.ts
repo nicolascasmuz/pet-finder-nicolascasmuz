@@ -19,6 +19,7 @@ customElements.define(
             <div class="comp-container">
               <button class="exit-button"><img class="exit-cross" src="${exitCross}" alt="exit-cross"></button>
               <report-form-comp></report-form-comp>
+              <sent-info-comp></sent-info-comp>
               <div class="card__container">
                 <img class="card__img" src="${this.picURL}" alt="pet-pic" >
                 <div class="card__name-button">
@@ -53,6 +54,9 @@ customElements.define(
             height: 25px;
             }
             report-form-comp {
+            display: none;
+            }
+            sent-info-comp {
             display: none;
             }
             .card__container {
